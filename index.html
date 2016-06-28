@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="application-name" content="Essential YouTube">
+    <meta name="description" content="An experimental UI for YouTube.">
+    <meta name="url" content="http://essentialyoutube.com/">
+
+    <meta property="og:site_name" content="Essential YouTube">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://essentialyoutube.com">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:title" content="Essential YouTube">
+    <meta name="twitter:description" content="An experimental UI for YouTube.">
+    <meta name="twitter:url" content="http://essentialyoutube.com">
+    <meta name="twitter:creator" content="@boramalper">
+
+    <title>Essential YouTube</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.red-indigo.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="Autolinker.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><a href="#" onclick="header_title_onClick()">Essential YouTube</a></span>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a href="about/" class="mdl-navigation__link">About</a>
+          </nav>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="search" oninput="search_onInput(this)" onkeydown="search_onKeydown(event)" onclick="search_onClick(this)">
+              <label class="mdl-textfield__label" for="search">Search...</label>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main class="mdl-layout__content" onscroll="main_onScroll(this)">
+        <div class="page-content">
+          <div id="player-container">
+            <div id="player"></div>
+          </div>
+
+
+          <ul id="controllers" class="mdl-list hidden">
+            <li class="mdl-list__item"><input id="slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0" onchange="slider_onChange(this)" onmouseup="slider_onMouseup(this)" onmousedown="slider_onMousedown(this)">
+            </li>
+            <li id="controller-buttons" class="mdl-list__item">
+              <div>
+                <button id="play-pause" class="mdl-button mdl-js-button" onclick="playPause_onClick(this)"><i class="material-icons">pause</i></button>
+                <button class="mdl-button mdl-js-button" onclick="next_onClick()"><i class="material-icons">skip_next</i></button>
+                <button class="mdl-button mdl-js-button" onclick="volume_onClick(this)"><i class="material-icons">volume_up</i></button>
+              </div>
+
+              <button class="mdl-button mdl-js-button videoControl" onclick="close_onClick()" title="Exit the search"><i class="material-icons">close</i></button>
+
+            </li>
+          </ul>
+
+
+          <div id="main-grid" class="mdl-grid">
+            <!-- Video Metadata Column -->
+            <div id="main-column" class="mdl-cell mdl-cell--8-col">
+              <div id="info" class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h3 class="mdl-card__title-text" id="video-title">Title</h3>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <div id="video-statistics">
+                    <div><span id="view-count"></span> <i class="material-icons">remove_red_eye</i></div>
+                    <div id="like-dislike" class="mdl-progress mdl-js-progress"></div>
+                  </div>
+                  <div id="video-desc">
+                    Description...
+                  </div>
+                </div>
+              </div>
+              <ul id="search-results" class="mdl-list hidden"></ul>
+            </div>
+
+            <!-- Queue Column -->
+            <div class="mdl-cell mdl-cell--4-col">
+              <div id="repeat-card" class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__supporting-text">
+                  <div id="repeat-container">
+                    <div><i class="material-icons">repeat_one</i><span> Repeat the video</span></div>
+                    <label class="mdl-switch mdl-js-switch" for="loopSwitch">
+                      <input type="checkbox" id="loopSwitch" class="mdl-switch__input">
+                        <span class="mdl-switch__label"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <ul id="queue" class="mdl-list"></ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

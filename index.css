@@ -1,0 +1,151 @@
+.hidden {
+    height: 0px;
+    visibility: hidden;
+}
+
+.page-content {
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-top: 16px;
+}
+
+
+.mdl-card {
+    width: 100%;
+}
+
+#main-grid {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+#search-results {
+    margin-top: -16px;
+    padding-top: 0px;
+}
+
+#repeat-card {
+    min-height: 58.5px;
+    height: 58.5px;
+}
+
+#repeat-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#repeat-container label {
+    width: auto;
+}
+
+#repeat-container span {
+    vertical-align: top;
+}
+
+#video-statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#view-count {
+    vertical-align: super;
+    font-size: large;
+}
+
+#like-dislike {
+    width: 30%;
+}
+
+#video-desc {
+    padding-top: 8px;
+}
+
+#video-desc a {
+    color: rgba(0, 0, 0, .54);
+}
+
+.mdl-slider__container {
+    width: 100%;
+}
+
+#controller-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#queue {
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.mdl-layout-title a {
+    color: white;
+    text-decoration: none;
+}
+
+#search-results h3 a {
+    color: black;
+    text-decoration: none;
+}
+
+#search-results .mdl-card__title {
+    white-space: nowrap;
+    max-width: calc(100% - 8px - 1 * 32px - 16px);
+}
+
+#search-results img {
+    padding-left: 16px;
+    padding-bottom: 16px; 
+    width: 180px;
+    height: 135px;
+}
+
+#search-results .mdl-card__supporting-text, .entry-details .mdl-card__supporting-text {
+    padding-top: 0px;
+    text-align: justify;
+}
+
+.entry-detais .mdl-card__supporting-text a {
+    color: rgba(0, 0, 0, .54);
+}
+
+.entry-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+#queue .mdl-list__item:first-child h3 a {
+    color: black;
+    text-decoration: none;
+}
+
+#queue .mdl-list__item:first-child img {
+    padding-left: 16px;
+    padding-bottom: 16px; 
+    width: 90px;
+    height: 67.5px;
+}
+
+#queue .mdl-list__item:first-child .mdl-card {
+    min-height: 150.5px;
+    height: 150.5px;
+}
+
+#queue .mdl-list__item:not(:first-child) .mdl-card {
+    min-height: 50px;
+    height: 50px;
+}
+
+#queue .mdl-list__item:not(:first-child) .mdl-card__supporting-text {
+    max-width: calc(100% - 8px - 3 * 32px - 16px - 8px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#queue .mdl-list__item:not(:first-child) {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
