@@ -21,10 +21,11 @@ var isSearching = false;
 var autolinker = new Autolinker({twitter: false, hashtag: false});
 
 window.onload = function() {
-    if (window.location.href.split("#").length === 2 && window.location.href.split("#")[1].length >= 11)
-        loadVideo(window.location.href.split("#")[1]);
+    var videoID = window.location.hash.slice(1, 1 + 11)
+    if (videoID.length == 11)
+        loadVideo(videoID);
     else
-        loadVideo('WFxPkhLNrcc');
+        changeVideo('WFxPkhLNrcc');
 
     setInterval(updateSlider, SLIDER_INTERVAL);
 
@@ -100,7 +101,7 @@ function loadVideo(videoId) {
         slider.setAttribute("max", parseDuration(response.items[0].contentDetails.duration));
         slider.value = 0;
 
-        window.location.href = window.location.href.split("#")[0] + "#" + videoId;
+
     };
 
     xmlHttp.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=" + videoId + "&key=" + API_KEY, true);
@@ -110,7 +111,7 @@ function loadVideo(videoId) {
 
 function nextVideo() {
     if (queue.length) {
-        loadVideo(queue.shift().id.videoId);
+        changeVideo(queue.shift().id.videoId);
         refreshQueue();
     }
     else {
@@ -215,7 +216,7 @@ function refreshSearchResults() {
           '<div class="mdl-card mdl-shadow--2dp">' +
             '<div class="mdl-card__title">' +
               '<h3 class="mdl-card__title-text">' +
-                '<a href="#" onclick="video_title_onClick(\'{videoID}\')">{title}</a>' +
+                '<a onclick="javascript:video_title_onClick(\'{videoID}\')">{title}</a>' +
               '</h3>' +
             '</div>' +
             '<div class="mdl-card__menu">' +
@@ -225,7 +226,7 @@ function refreshSearchResults() {
             '</div>' +
             '<div class="entry-details">' +
               '<div>' +
-                '<a href="#" onclick="thumbnail_onClick(\'{videoID}\')">' +
+                '<a onclick="javascript:thumbnail_onClick(\'{videoID}\')">' +
                   '<img src="{thumbnailURL}">' +
                 '</a>' +
               '</div>' +
@@ -257,7 +258,7 @@ function refreshQueue() {
                                  '<div class="mdl-card mdl-shadow--2dp">' +
                                    '<div class="mdl-card__title">' +
                                      '<h3 class="mdl-card__title-text">'+
-                                       '<a href="#" onclick="queue_title_onClick()">Next</a>' +
+                                       '<a onclick="javascript:queue_title_onClick()">Next</a>' +
                                      '</h3>' +
                                    '</div>' +
                                    '<div class="mdl-card__menu">' +
@@ -273,7 +274,7 @@ function refreshQueue() {
                                    '</div>' +
                                    '<div class="entry-details">' +
                                      '<div>' +
-                                       '<a href="#" onclick="queue_thumbnail_onClick()"><img src="{thumbnailURL}"></a>' +
+                                       '<a onclick="javascript:queue_thumbnail_onClick()"><img src="{thumbnailURL}"></a>' +
                                      '</div>' +
                                      '<div class="mdl-card__supporting-text">' +
                                        '{title}' +
@@ -323,7 +324,19 @@ function refreshQueue() {
     }
 }
 
+
+function changeVideo(videoID) {
+    window.location.hash = videoID;
+}
+
 /* ==================================================== CALLBACKS =================================================== */
+window.onhashchange = function() {
+    var videoID = window.location.hash.slice(1, 1 + 11);
+    if (videoID.length == 11) {
+        loadVideo(videoID);
+    }
+}
+
 function header_title_onClick() {
     document.getElementsByTagName("main")[0].scrollTop = 0;
 }
@@ -331,7 +344,7 @@ function header_title_onClick() {
 
 function video_title_onClick(videoID) {
     exitSearch();
-    loadVideo(videoID);
+    changeVideo(videoID);
 }
 
 
@@ -350,7 +363,7 @@ function queue_title_onClick() {
 
 function thumbnail_onClick(videoID) {
     exitSearch();
-    loadVideo(videoID);
+    changeVideo(videoID);
 }
 
 function close_onClick() {
