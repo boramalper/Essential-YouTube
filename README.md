@@ -20,7 +20,7 @@ _Essential YouTube is an experiment to improve user experience by stripping the 
   Video annotations are disabled by default. Also, no Autoplay, but the videos you want to play. 
 * __Client-side__
 
-  Video annotations are disabled by default. Also, no Autoplay, but the videos you want to play. 
+  There are no servers in-between you and YouTube; everything is done on your computer and it's open source. As private as it could be. 
 
 Obvious it might sound, but please keep in mind that Essential YouTube is an experiment, and as pleasing as it might be to use, it's not intended to be a replacement for everyday use. Missing functionality is not a bug, it's a feature.
 
