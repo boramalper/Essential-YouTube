@@ -38,6 +38,10 @@
     padding-top: 0px;
 }
 
+#search-results li a {
+    cursor: pointer;
+}
+
 #repeat-card {
     min-height: 58.5px;
     height: 58.5px;
@@ -91,6 +95,10 @@
 #queue {
     margin-left: -16px;
     margin-right: -16px;
+}
+
+#queue li a {
+    cursor: pointer;
 }
 
 .mdl-layout-title a {
