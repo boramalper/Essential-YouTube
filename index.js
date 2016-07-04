@@ -289,13 +289,13 @@ function refreshQueue() {
                                       '{title}' +
                                     '</div>' +
                                     '<div class="mdl-card__menu">' +
-                                      '<button class="mdl-button mdl-button--icon mdl-js-button" onclick="upward_onClick(\'{pos}\')" title="Remove from queue">' +
+                                      '<button class="mdl-button mdl-button--icon mdl-js-button" onclick="upward_onClick(\'{pos}\')" title="Move upwards in queue">' +
                                         '<i class="material-icons">arrow_upward</i>' +
                                       '</button>' +
                                       '<button class="mdl-button mdl-button--icon mdl-js-button" onclick="downward_onClick(\'{pos}\')" title="Move downwards in queue" {isDisabled}>' +
                                         '<i class="material-icons">arrow_downward</i>' +
                                       '</button>' +
-                                      '<button class="mdl-button mdl-button--icon mdl-js-button" onclick="remove_onClick(\'{pos}\')" title="Move upwards in queue">' +
+                                      '<button class="mdl-button mdl-button--icon mdl-js-button" onclick="remove_onClick(\'{pos}\')" title="Remove from queue">' +
                                         '<i class="material-icons">remove</i>' +
                                       '</button>' +
                                     '</div>' +
