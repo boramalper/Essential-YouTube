@@ -3,12 +3,24 @@
     visibility: hidden;
 }
 
+
 .page-content {
-    margin-left: 17%;
-    margin-right: 17%;
     margin-top: 16px;
 }
 
+@media (min-width: 1024px) {
+    .page-content {
+        margin-left: 17%;
+        margin-right: 17%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .page-content {
+        margin-left: 16px;
+        margin-right: 16px;
+    } 
+}
 
 .mdl-card {
     width: 100%;
