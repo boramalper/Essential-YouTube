@@ -181,7 +181,7 @@ function search(nodelay, nextPage) {
 
     var xmlHttp = new XMLHttpRequest();
 
-    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + search_i.value + '&type=video&maxResults=10&key=' + API_KEY;
+    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + encodeURIComponent(search_i.value) + '&type=video&maxResults=10&key=' + API_KEY;
     if (nextPage && nextPageToken)
         url += '&pageToken=' + nextPageToken;
 
